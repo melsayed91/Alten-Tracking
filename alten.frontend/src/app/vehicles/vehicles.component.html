@@ -1,0 +1,31 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Vehicles</h4>
+                        <p class="category">Available Vehicles Information</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr>
+                                    <th>VIN</th>
+                                    <th>Reg.No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let vehicle of vehicles" >
+                                    <td>{{vehicle.vin}}</td>
+                                    <td class="text-danger">{{vehicle.regNo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

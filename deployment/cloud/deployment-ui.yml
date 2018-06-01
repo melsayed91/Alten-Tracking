@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alten-deployment-ui
+  labels:
+    #Project ID
+    app: alten-189513
+spec:
+  #Run one instances of our application
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: alten-189513
+    spec:
+      #Container details
+      containers:
+        - name: webui
+          image: gcr.io/alten-189513/webui:0.0.1
+          imagePullPolicy: Always
+          #Ports to expose
+          ports:
+          - containerPort: 8080

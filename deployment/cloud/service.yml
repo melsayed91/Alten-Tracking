@@ -1,0 +1,41 @@
+kind: Service
+apiVersion: v1
+metadata:
+  #Service name
+  name: driverservice
+spec:
+  selector:
+    app: alten-189513
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  #Service name
+  name: vehicleservice
+spec:
+  selector:
+    app: alten-189513
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3001
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  #Service name
+  name: monitorservice
+spec:
+  selector:
+    app: alten-189513
+  ports:
+    - protocol: TCP
+      port: 3002
+      targetPort: 3002
+  type: LoadBalancer

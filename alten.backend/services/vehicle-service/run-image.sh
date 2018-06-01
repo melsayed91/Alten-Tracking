@@ -1,0 +1,1 @@
+docker run --name vehicles-service -p 3001:3001 --env-file config.env -d vehicles-service

@@ -1,0 +1,28 @@
+version: '2' 
+services:
+  angular:
+    build: ../alten.frontend 
+    image: gcr.io/alten-189513/webui:0.0.1
+    ports:
+      - "8080:80" 
+  driver:
+    env_file:
+     - ../alten.backend/services/driver-service/config.env
+    image: gcr.io/alten-189513/driverservice:0.0.1
+    build: ../alten.backend/services/driver-service 
+    ports:
+      - "3000:3000" 
+  vehicle:
+    env_file:
+     - ../alten.backend/services/monitoring-service/config.env
+    image: gcr.io/alten-189513/vehicleservice:0.0.1
+    build: ../alten.backend/services/monitoring-service 
+    ports:
+      - "3001:3001" 
+  monitor:
+    env_file:
+     - ../alten.backend/services/vehicle-service/config.env
+    image: gcr.io/alten-189513/monitorservice:0.0.1
+    build: ../alten.backend/services/vehicle-service
+    ports:
+      - "3002:3002"

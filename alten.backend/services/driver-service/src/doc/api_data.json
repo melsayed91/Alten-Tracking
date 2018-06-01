@@ -1,0 +1,206 @@
+[
+  {
+    "type": "get",
+    "url": "/drivers",
+    "title": "all drivers",
+    "group": "Drivers",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "drivers",
+            "description": "<p>Driver's list</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers._id",
+            "description": "<p>Driver _id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.name",
+            "description": "<p>Driver name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.address",
+            "description": "<p>Driver address</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.city",
+            "description": "<p>Driver city</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "drivers.vehicles",
+            "description": "<p>Driver vehicles</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"_id\" : \"5a31925294112a28acde2a24\",\n   \"name\" : \"Kalles Grustransporter AB\",\n   \"address\" : \"Cementvägen 8, 111 11\",\n   \"city\" : \"Södertälje\",\n    \"vehicles\" : [\n          \"5a31919b94112a28acde2a1d\",\n          \"5a3191b294112a28acde2a1e\",\n          \"5a3191c494112a28acde2a1f\"\n      ]\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/driver.js",
+    "groupTitle": "Drivers",
+    "name": "GetDrivers"
+  },
+  {
+    "type": "get",
+    "url": "/drivers/count",
+    "title": "count all drivers",
+    "group": "Drivers",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n5",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/driver.js",
+    "groupTitle": "Drivers",
+    "name": "GetDriversCount"
+  },
+  {
+    "type": "get",
+    "url": "/drivers/{id}",
+    "title": "get driver details by id",
+    "group": "Drivers",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "driver",
+            "description": "<p>Driver's Object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers._id",
+            "description": "<p>Driver _id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.name",
+            "description": "<p>Driver name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.address",
+            "description": "<p>Driver address</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "drivers.city",
+            "description": "<p>Driver city</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "drivers.vehicles",
+            "description": "<p>Driver vehicles</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"_id\" : \"5a31925294112a28acde2a24\",\n   \"name\" : \"Kalles Grustransporter AB\",\n   \"address\" : \"Cementvägen 8, 111 11\",\n   \"city\" : \"Södertälje\",\n    \"vehicles\" : [\n          \"5a31919b94112a28acde2a1d\",\n          \"5a3191b294112a28acde2a1e\",\n          \"5a3191c494112a28acde2a1f\"\n      ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/driver.js",
+    "groupTitle": "Drivers",
+    "name": "GetDriversId"
+  },
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./doc/main.js",
+    "group": "E__source_code_Alten_alten_backend_services_driver_service_src_doc_main_js",
+    "groupTitle": "E__source_code_Alten_alten_backend_services_driver_service_src_doc_main_js",
+    "name": ""
+  }
+]

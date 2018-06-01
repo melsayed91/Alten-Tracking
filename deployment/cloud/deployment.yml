@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alten-deployment
+  labels:
+    #Project ID
+    app: alten-189513
+spec:
+  #Run one instances of our application
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: alten-189513
+    spec:
+      #Container details
+      containers:
+        - name: driverservice
+          image: gcr.io/alten-189513/driverservice:0.0.1
+          imagePullPolicy: Always
+          #Ports to expose
+          ports:
+          - containerPort: 3000
+        - name: vehicleservice
+          image: gcr.io/alten-189513/vehicleservice:0.0.1
+          imagePullPolicy: Always
+          #Ports to expose
+          ports:
+          - containerPort: 3001
+        - name: monitorservice
+          image: gcr.io/alten-189513/monitorservice:0.0.1
+          imagePullPolicy: Always
+          #Ports to expose
+          ports:
+          - containerPort: 3002

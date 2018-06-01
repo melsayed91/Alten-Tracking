@@ -1,0 +1,1 @@
+docker run --name driverservice -p 3000:3000 --env-file config.env -d gcr.io/alten-189513/driverservice:0.0.1

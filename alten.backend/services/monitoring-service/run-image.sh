@@ -1,0 +1,1 @@
+docker run --name monitoring-service -p 3002:3002 --env-file config.env -d monitoring-service

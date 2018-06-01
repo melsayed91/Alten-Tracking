@@ -1,0 +1,22 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let driver of drivers">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="card-title">{{driver.name}}</h4>
+                        <p class="category">{{driver.address}}</p>
+                        <p class="category">{{driver.city}}</p>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li *ngFor="let vehicle of driver.vehicles">{{vehicle.vin}}/{{vehicle.regNo}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+</div>
