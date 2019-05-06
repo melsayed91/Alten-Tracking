@@ -3,7 +3,7 @@ jobs:
   test-driver-service:
     docker:
       - image: circleci/node:10
-    working_directory: ~/alten.backend/services/driver-service
+    working_directory: ~/driver-service
     steps:
       - checkout
       - restore_cache:
@@ -23,7 +23,7 @@ jobs:
   test-monitoring-service:
     docker:
       - image: circleci/node:10
-    working_directory: ~/alten.backend/services/monitoring-service
+    working_directory: ~/monitoring-service
     steps:
       - checkout
       - restore_cache:
@@ -43,7 +43,7 @@ jobs:
   test-vehicle-service:
     docker:
       - image: circleci/node:10
-    working_directory: ~/alten.backend/services/vehicle-service
+    working_directory: ~/vehicle-service
     steps:
       - checkout
       - restore_cache:
