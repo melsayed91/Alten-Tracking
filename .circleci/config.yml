@@ -12,10 +12,36 @@ jobs:
       - run:
           name: Run tests
           command: cd alten.backend/services/driver-service && npm test
+  test-monitoring-service:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: cd alten.backend/services/monitoring-service && npm install
+      - run:
+          name: Run tests
+          command: cd alten.backend/services/monitoring-service && npm test
+  test-vehicle-service:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: cd alten.backend/services/vehicle-service && npm install
+      - run:
+          name: Run tests
+          command: cd alten.backend/services/vehicle-service && npm test
   
 workflows:
   version: 2
   ultimate_pipeline:
     jobs:
       - test-driver-service
+      - test-monitoring-service
+      - test-vehicle-service
       
