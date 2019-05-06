@@ -5,12 +5,7 @@ jobs:
       - image: circleci/node:10
     working_directory: ~/repo
     steps:
-      - checkout:
-         path: ~/repo/alten.backend/services/driver-service
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+      - checkout     
       - run:
           name: Install dependencies
           command: cd alten.backend/services/driver-service && npm install
