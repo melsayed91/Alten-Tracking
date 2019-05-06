@@ -3,7 +3,7 @@ jobs:
   test-driver-service:
     docker:
       - image: circleci/node:10
-    working_directory: ~/driver-service
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
