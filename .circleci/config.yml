@@ -11,7 +11,7 @@ jobs:
           command: cd alten.backend/services/driver-service && npm install
       - run:
           name: Run tests
-          command: npm test
+          command: cd alten.backend/services/driver-service && npm test
   
 workflows:
   version: 2
