@@ -34,8 +34,9 @@ const start = (options) => {
        
         
         driverAPI(app, options)
-        const server = app.listen(options.port, () => resolve(app))
-    })
+        const server = app.listen(options.port);
+        resolve({server,app});
+        })
 }
 
 module.exports = Object.assign({}, { start })

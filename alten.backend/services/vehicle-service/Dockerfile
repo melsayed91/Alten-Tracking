@@ -1,16 +1,8 @@
-FROM node:9.2.1
-
-RUN useradd --user-group --create-home --shell /bin/false nupp && \
-    apt-get clean
-
-ENV HOME=/home/nupp
-COPY package.json npm-shrinkwrap.json $HOME/app/
-COPY src/ $HOME/app/src
-RUN chown -R nupp:nupp $HOME/* /usr/local/
-WORKDIR $HOME/app
+FROM node:10-alpine
+WORKDIR /usr/app
+COPY package*.json ./
 RUN npm cache verify && \
     npm install --silent --progress=false --production
-RUN chown -R nupp:nupp $HOME/*
-USER nupp
+COPY . . 
 EXPOSE 3001
 CMD ["npm", "start"]

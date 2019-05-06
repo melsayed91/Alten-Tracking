@@ -32,7 +32,7 @@ mediator.on('db.ready', (client, db) => {
                 repo
             })
         })
-        .then(app => {
+        .then(({server,app} )=> {
             app.use('/apidoc', express.static(__dirname + '/doc'));
             app.use(serveStatic('../doc', { 'index': ['index.html'] }))
             console.log(`Server started succesfully, running on port: ${config.serverSettings.port}.`)

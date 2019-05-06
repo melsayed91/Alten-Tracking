@@ -1,0 +1,69 @@
+version: 2
+jobs:
+  test-driver-service:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/alten.backend/services/driver-service
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run tests
+          command: npm test
+  test-monitoring-service:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/alten.backend/services/monitoring-service
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run tests
+          command: npm test
+  test-vehicle-service:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/alten.backend/services/vehicle-service
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run tests
+          command: npm test
+workflows:
+  version: 2
+  ultimate_pipeline:
+    jobs:
+      - test-driver-service
+      - test-monitoring-service
+      - test-vehicle-service

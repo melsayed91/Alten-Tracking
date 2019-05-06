@@ -7,9 +7,9 @@ const SIGNALS =
     }
 const repository = (db) => {
 
-    const collection = db.collection('vehicles')
-    const signal = db.collection('signal')
     const getVehicles = () => {
+        const collection = db.collection('vehicles');
+
         return new Promise((resolve, reject) => {
             const vehicles = []
             const query = {
@@ -29,6 +29,8 @@ const repository = (db) => {
         })
     }
     const getVehiclesCount = () => {
+        const collection = db.collection('vehicles');
+
         return new Promise((resolve, reject) => {
 
             const query = {}
@@ -43,6 +45,8 @@ const repository = (db) => {
     }
 
     const getConnectedVehicles = () => {
+        const signal = db.collection('signal')
+
         return new Promise((resolve, reject) => {
 
             const query = { status: SIGNALS.CONNECTED}
@@ -56,6 +60,8 @@ const repository = (db) => {
         })
     }
     const getDisconnectedVehicles = () => {
+        const signal = db.collection('signal')
+
         return new Promise((resolve, reject) => {
 
             const query = { status: SIGNALS.DISCONNECTED }
@@ -70,6 +76,8 @@ const repository = (db) => {
     }
 
     const geVehicleById = (id) => {
+        const collection = db.collection('vehicles');
+
         return new Promise((resolve, reject) => {
             const projection = { _id: 1, name: 1, address: 1 }
             const sendVehicle = (err, vehicle) => {

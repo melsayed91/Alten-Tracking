@@ -32,7 +32,8 @@ const start = (options) => {
         });
         vehicleAPI(app, options)
 
-        const server = app.listen(options.port, () => resolve(app))
+        const server = app.listen(options.port);
+        resolve({server,app});
     })
 }
 

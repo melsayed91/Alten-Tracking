@@ -9,11 +9,10 @@ const SIGNALS =
 
 const repository = (db) => {
 
-    const collection = db.collection('drivers')
-    const signal = db.collection('signal')
-    const signalHistory = db.collection('signalHistory')
+
 
     const getDriversVehicles = () => {
+        const collection = db.collection('drivers')
         return new Promise((resolve, reject) => {
             const vehicles = []
             const projection = { _id: 1, vehicles: 1 }
@@ -33,6 +32,8 @@ const repository = (db) => {
     }
 
     const getVehiclesStatus =()=>{
+        const signal = db.collection('signal')
+
         return new Promise((resolve, reject) => {
             const signals = []
             const query = {}
@@ -81,6 +82,9 @@ const repository = (db) => {
 
 
     const updateSignals = (singalObj) => {
+        const signal = db.collection('signal')
+        const signalHistory = db.collection('signalHistory')
+
         return new Promise((resolve, reject) => {
             const filter = { vehicleId: singalObj.vehicleId }
             const options = { upsert: true }

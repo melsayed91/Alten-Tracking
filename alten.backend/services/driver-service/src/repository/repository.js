@@ -3,9 +3,10 @@ const ObjectID = require('mongodb').ObjectID
 
 const repository = (db) => {
 
-    const collection = db.collection('drivers')
 
     const getDrivers = () => {
+        const collection = db.collection('drivers')
+
         return new Promise((resolve, reject) => {
             const drivers = []
             const match = {
@@ -56,6 +57,8 @@ const repository = (db) => {
     }
 
     const getDriversCount = () => {
+        const collection = db.collection('drivers')
+
         return new Promise((resolve, reject) => {
 
             const query = {}
@@ -70,6 +73,8 @@ const repository = (db) => {
     }
 
     const geDriverById = (id) => {
+        const collection = db.collection('drivers')
+
         return new Promise((resolve, reject) => {
             const projection = { _id: 1, name: 1, address: 1 }
             const sendDriver = (err, driver) => {

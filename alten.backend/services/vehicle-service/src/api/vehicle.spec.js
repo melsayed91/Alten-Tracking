@@ -4,6 +4,7 @@ const server = require('../server/server')
 const should = require('should')
 describe('Vehicles API', () => {
     let app = null
+    let serv=null
     let testVehicles = [{
         _id: "3",
         vin: "YS2R4X20005388011",
@@ -37,14 +38,16 @@ describe('Vehicles API', () => {
         return server.start({
             port: 3001,
             repo: testRepo
-        }).then(serv => {
-            app = serv
+        }).then(data => {
+            serv=data.server
+            app = data.app
         })
     })
 
-    afterEach(() => {
-        app.close()
+    afterEach((done) => {
+        serv.close()
         app = null
+        done()
     })
 
     it('can return all vehicles', (done) => {

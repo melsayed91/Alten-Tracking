@@ -2,7 +2,7 @@ const dbSettings = {
     db: process.env.DB || 'alten',
     user: process.env.DB_USER || 'root',
     pass: process.env.DB_PASS || 'e2NNvs8DHt6Y',
-    server: process.env.DB_HOST || '35.193.56.101:27017',
+    server: process.env.DB_HOST || '35.238.173.233:27017',
     serverParameters: () => ({
         autoReconnect: true,
         poolSize: 10,
