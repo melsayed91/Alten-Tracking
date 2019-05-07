@@ -6,7 +6,7 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec src/**/*.spec.js",
+    "test": "mocha -R spec src/**/*.spec.js --exit",
     "start": "node src/index.js",
     "lint": "standard --verbose | snazzy"
   },

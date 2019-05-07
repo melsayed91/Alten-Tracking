@@ -4,7 +4,7 @@
   "description": "a microservice for the vehicles module , it will handle any crud operations related to the vehicles",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec src/**/*.spec.js",
+    "test": "mocha -R spec src/**/*.spec.js --exit",
     "start": "node src/index.js",
     "lint": "standard --verbose | snazzy"
   },
