@@ -81,8 +81,8 @@ jobs:
           name: Deploy to Kubernetes
           command: |
             cd deployment/cloud
-            kubectl create -f deployment.yml
-            kubectl create -f service.yml
+            kubectl apply -f deployment.yml
+            kubectl apply -f service.yml
             kubectl rollout status deployment/alten-deployment
 workflows:
   version: 2
