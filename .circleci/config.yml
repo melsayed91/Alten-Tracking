@@ -63,8 +63,6 @@ jobs:
               docker build -t gcr.io/${GOOGLE_PROJECT_ID}/driverservice:0.0.1 .
               gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
               docker push gcr.io/${GOOGLE_PROJECT_ID}/driverservice:0.0.1 
-
-
       - run:
           name: Docker build and push monitoring service
           command: |
@@ -89,9 +87,7 @@ workflows:
       - test-vehicle-service
       - deploy-to-staging
          requires:
-          - test-driver-service
-          - test-monitoring-service
-          - test-vehicle-service
+           - test-driver-service         
          filters:
            branches:
             only: master
