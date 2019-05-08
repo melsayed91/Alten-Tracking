@@ -86,9 +86,5 @@ workflows:
       - test-monitoring-service
       - test-vehicle-service
       - deploy-to-staging
-         requires:
-           - test-driver-service         
-         filters:
-           branches:
-            only: master
+        
       
