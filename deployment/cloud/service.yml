@@ -5,7 +5,7 @@ metadata:
   name: driverservice
 spec:
   selector:
-    app: alten-189513
+    app: alten-239719
   ports:
     - protocol: TCP
       port: 3000
@@ -19,7 +19,7 @@ metadata:
   name: vehicleservice
 spec:
   selector:
-    app: alten-189513
+    app: alten-239719
   ports:
     - protocol: TCP
       port: 3001
@@ -33,7 +33,7 @@ metadata:
   name: monitorservice
 spec:
   selector:
-    app: alten-189513
+    app: alten-239719
   ports:
     - protocol: TCP
       port: 3002
