@@ -77,6 +77,13 @@ jobs:
                docker build -t gcr.io/${GOOGLE_PROJECT_ID}/vehicleservice:0.0.1 .
                gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
                docker push gcr.io/${GOOGLE_PROJECT_ID}/vehicleservice:0.0.1 
+      - run:
+          name: Docker build and push web ui
+          command: |
+               cd alten.frontend
+               docker build -t gcr.io/${GOOGLE_PROJECT_ID}/webui:0.0.1 .
+               gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
+               docker push gcr.io/${GOOGLE_PROJECT_ID}/webui:0.0.1 
       - run: 
           name: Deploy to Kubernetes
           command: |
@@ -84,6 +91,9 @@ jobs:
             kubectl apply -f deployment.yml
             kubectl apply -f service.yml
             kubectl rollout status deployment/alten-deployment
+            kubectl apply -f deployment-ui.yml
+            kubectl apply -f service-ui.yml
+            kubectl rollout status deployment/alten-deployment-ui
 workflows:
   version: 2
   alten_pipeline:
