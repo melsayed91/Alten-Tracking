@@ -5,7 +5,7 @@ metadata:
   name: webui
 spec:
   selector:
-    app: alten-189513
+    app: alten-239719
   ports:
     - protocol: TCP
       port: 8080
